@@ -10,7 +10,7 @@ import (
 var (
 	DATATYPEDEFAULT       = dblayer.MONGODB
 	DATACONNECTIONDEFAULT = "mongodb:127.0.0.1"
-	RESTFULDEFAULT        = "localhost:8080"
+	RESTFULDEFAULT        = "localhost:9191"
 	RESTFULDEFAULTLS      = "localhost:8181"
 )
 
@@ -26,7 +26,7 @@ func NewServiceConfig(fileName string) (*ServiceConfig, error) {
 		DATATYPEDEFAULT,
 		DATACONNECTIONDEFAULT,
 		RESTFULDEFAULT,
-		RESTFULDEFAULT,
+		RESTFULDEFAULTLS,
 	}
 	file, err := os.Open(fileName)
 	if err != nil {

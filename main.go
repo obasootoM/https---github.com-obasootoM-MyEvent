@@ -8,10 +8,7 @@ import (
 	"myevent/configuration"
 	dblayer "myevent/dbLayer"
 )
-var(
-	httpChanServe = make(chan error)
-	httpChanServeTls = make(chan error)
-)
+
 
 func main() {
 	confPath := flag.String("conf",`./configuration/config.json`,"set the path to configuration json file")
@@ -20,7 +17,7 @@ func main() {
 	fmt.Println("connecting to database")
 	dbHandler, _ := dblayer.NewPersistenceLayer(config.Databasetype,config.DatabaseConnection)
 
-	httpChanServe,httpChanServeTls =api.ServiceApi(config.RestfulEndpoint,config.RestfulEndpointTls,dbHandler)
+	httpChanServe,httpChanServeTls :=api.ServiceApi(config.RestfulEndpoint,config.RestfulEndpointTls,dbHandler)
 	select {
 	case err := <- httpChanServe:
 		log.Fatal("HTTP ERROR", err)
