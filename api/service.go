@@ -90,7 +90,7 @@ func NewService(DbHandler persistence.DataBaseHandler) *Service {
 	}
 }
 
-func serviceApi(endpoint string, dbHandler persistence.DataBaseHandler) error {
+func ServiceApi(endpoint string, dbHandler persistence.DataBaseHandler) error {
 	r := mux.NewRouter()
 	handler := NewService(dbHandler)
 	eventRouter := r.PathPrefix("/events").Subrouter()
