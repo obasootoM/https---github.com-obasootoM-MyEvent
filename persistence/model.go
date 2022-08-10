@@ -4,7 +4,7 @@ import "gopkg.in/mgo.v2/bson"
 
 type DataBaseHandler interface{
 	AddEvent(Event) ([]byte, error)
-	FindEvent(Event) (Event, error)
+	FindEvent([]byte) (Event, error)
 	FindEventByName(string) (Event, error)
 	FindAllEventAvialable() ([]Event, error)
 }
