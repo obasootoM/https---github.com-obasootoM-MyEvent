@@ -90,12 +90,21 @@ func NewService(DbHandler persistence.DataBaseHandler) *Service {
 	}
 }
 
-func ServiceApi(endpoint string, dbHandler persistence.DataBaseHandler) error {
+func ServiceApi(endpoint,tlsEndpoint string, dbHandler persistence.DataBaseHandler)(chan error,chan error) {
 	r := mux.NewRouter()
 	handler := NewService(dbHandler)
 	eventRouter := r.PathPrefix("/events").Subrouter()
 	eventRouter.Methods("Get").Path("").HandlerFunc(handler.findEventHandler)
 	eventRouter.Methods("Get").Path("").HandlerFunc(handler.allEventHandler)
 	eventRouter.Methods("Post").Path("").HandlerFunc(handler.newEventHandler)
-	return http.ListenAndServe(endpoint, r)
+	httpChanServe := make(chan error)
+	httpChanServeTls := make(chan error)
+	go func() {
+      httpChanServeTls <- http.ListenAndServeTLS(tlsEndpoint,"cert.pem","key.pem",r)
+	}()
+	go func() {
+		httpChanServe <- http.ListenAndServe(endpoint, r)
+	}()
+	return httpChanServe,httpChanServeTls
+		
 }

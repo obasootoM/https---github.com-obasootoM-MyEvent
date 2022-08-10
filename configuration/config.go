@@ -11,12 +11,14 @@ var (
 	DATATYPEDEFAULT       = dblayer.MONGODB
 	DATACONNECTIONDEFAULT = "mongodb:127.0.0.1"
 	RESTFULDEFAULT        = "localhost:8080"
+	RESTFULDEFAULTLS      = "localhost:8181"
 )
 
 type ServiceConfig struct {
-	Databasetype      dblayer.DATATYPE `json:"databasetype"`
+	Databasetype       dblayer.DATATYPE `json:"databasetype"`
 	DatabaseConnection string           `json:"databaseconnection"`
-	RestfulEndpoint   string           `json:"restfulendpoint"`
+	RestfulEndpoint    string           `json:"restfulendpoint"`
+	RestfulEndpointTls string           `json:"restfulEndpointTls"`
 }
 
 func NewServiceConfig(fileName string) (*ServiceConfig, error) {
@@ -24,10 +26,11 @@ func NewServiceConfig(fileName string) (*ServiceConfig, error) {
 		DATATYPEDEFAULT,
 		DATACONNECTIONDEFAULT,
 		RESTFULDEFAULT,
+		RESTFULDEFAULT,
 	}
 	file, err := os.Open(fileName)
 	if err != nil {
-		fmt.Println("file cannot be open, need to continue")
+		fmt.Println("configuration file not found, need to continue")
 		return config, err
 	}
 	decode := json.NewDecoder(file)
