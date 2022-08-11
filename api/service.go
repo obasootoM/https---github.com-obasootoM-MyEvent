@@ -4,15 +4,19 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"myevent/contract"
+	"myevent/lib/mesqp"
 	"myevent/persistence"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/gorilla/mux"
 )
 
 type Service struct {
 	DbHandler persistence.DataBaseHandler
+	emitter mesqp.EventEmmiter
 }
 
 func (eh *Service) findEventHandler(w http.ResponseWriter, r *http.Request) {
@@ -82,17 +86,28 @@ func (eh *Service) newEventHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "error occur while persisting event%d %s", id, err)
 		return
 	}
+	msg := contract.EventCreatedEvent{
+		Id: hex.EncodeToString(id),
+		Name: events.Name,
+		LocationId: string(events.Location.ID),
+		Start: time.Unix(events.StartDate,0),
+		End: time.Unix(events.EndDate, 0),
+
+	}
+	eh.emitter.Emit(&msg)
 }
 
-func NewService(DbHandler persistence.DataBaseHandler) *Service {
+func NewService(DbHandler persistence.DataBaseHandler, emiter mesqp.EventEmmiter) *Service {
 	return &Service{
 		DbHandler: DbHandler,
+		emitter: emiter,
+
 	}
 }
 
-func ServiceApi(endpoint,tlsEndpoint string, dbHandler persistence.DataBaseHandler)(chan error,chan error) {
+func ServiceApi(endpoint,tlsEndpoint string, dbHandler persistence.DataBaseHandler, emitter mesqp.EventEmmiter)(chan error,chan error) {
 	r := mux.NewRouter()
-	handler := NewService(dbHandler)
+	handler := NewService(dbHandler, emitter)
 	eventRouter := r.PathPrefix("/events").Subrouter()
 	eventRouter.Methods("Get").Path("").HandlerFunc(handler.findEventHandler)
 	eventRouter.Methods("Get").Path("").HandlerFunc(handler.allEventHandler)

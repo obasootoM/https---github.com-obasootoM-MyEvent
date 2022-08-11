@@ -12,6 +12,7 @@ var (
 	DATACONNECTIONDEFAULT = "mongodb:127.0.0.1"
 	RESTFULDEFAULT        = "localhost:9191"
 	RESTFULDEFAULTLS      = "localhost:8181"
+	AMPQMESSAGEBROKER     = "amqp://guest:guest@localhost:5672"
 )
 
 type ServiceConfig struct {
@@ -19,6 +20,7 @@ type ServiceConfig struct {
 	DatabaseConnection string           `json:"databaseconnection"`
 	RestfulEndpoint    string           `json:"restfulendpoint"`
 	RestfulEndpointTls string           `json:"restfulEndpointTls"`
+	AmqpMessageBroker  string           `json:"ampqmessagebroker"`
 }
 
 func NewServiceConfig(fileName string) (*ServiceConfig, error) {
@@ -27,7 +29,9 @@ func NewServiceConfig(fileName string) (*ServiceConfig, error) {
 		DATACONNECTIONDEFAULT,
 		RESTFULDEFAULT,
 		RESTFULDEFAULTLS,
+		AMPQMESSAGEBROKER,
 	}
+	
 	file, err := os.Open(fileName)
 	if err != nil {
 		fmt.Println("configuration file not found, need to continue")
@@ -35,5 +39,8 @@ func NewServiceConfig(fileName string) (*ServiceConfig, error) {
 	}
 	decode := json.NewDecoder(file)
 	err = decode.Decode(&config)
+	if broker := os.Getenv("amqp");broker != "" {
+      config.AmqpMessageBroker = broker
+	}
 	return config, err
 }

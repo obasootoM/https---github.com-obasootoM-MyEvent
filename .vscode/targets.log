@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 10 18:30:26 2022
+# Make data base, printed on Thu Aug 11 00:39:16 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ SNAP_DATA = /var/snap/code/103
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:50444
+JOURNAL_STREAM = 8:49788
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -67,15 +67,19 @@ USERNAME = hod
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/103/usr/share/code/code
 # environment
-MANAGERPID = 2017
+MANAGERPID = 2375
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/hod
+# environment
+GOPROXY = https://proxy.golang.org,direct
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/103/usr/share/glib-2.0/schemas
 # default
@@ -85,13 +89,15 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2297,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2297
+SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2590,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2590
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/hod/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 SNAP = /snap/code/103
+# environment
+GOPATH = /home/hod/go
 # environment
 SNAP_VERSION = da76f933
 # environment
@@ -101,7 +107,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 5fa1517aca7645938bf1d3cec56f42e2
+INVOCATION_ID = faa4788799244329ba1d9dc2592b94a1
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/103/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -113,7 +119,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 6667
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3216
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,13 +131,13 @@ PWD = /home/hod/MyEvent
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2260
+SSH_AGENT_PID = 2552
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+GOMODCACHE = /home/hod/go/pkg/mod
 # environment
 HOME = /home/hod
 # environment
@@ -241,9 +247,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 6718
+VSCODE_PID = 3262
 # variable set hash-table stats:
-# Load=115/1024=11%, Rehash=0, Collisions=17/140=12%
+# Load=118/1024=12%, Rehash=0, Collisions=18/143=13%
 
 # Pattern-specific Variable Values
 
@@ -253,7 +259,6 @@ VSCODE_PID = 6718
 
 # . (device 2054, inode 2547775): 15 files, no impossibilities.
 
- 
 # 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
@@ -301,6 +306,7 @@ main:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+ 
 #  recipe to execute (from 'Makefile', line 5):
 	go run main.go
 
@@ -318,6 +324,6 @@ main:
 # strcache performance: lookups = 32 / hit rate = 28%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Wed Aug 10 18:30:26 2022
+# Finished Make data base on Thu Aug 11 00:39:16 2022
 
  

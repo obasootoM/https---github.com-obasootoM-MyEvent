@@ -7,24 +7,25 @@ import (
 	"myevent/api"
 	"myevent/configuration"
 	dblayer "myevent/dbLayer"
-	"os"
-
+	
+     "myevent/lib/amqp"
 	"github.com/streadway/amqp"
 )
 
 func main() {
-	amqpURL := os.Getenv("amqp")
-	if amqpURL == "" {
-		amqpURL = "amqp://guest:guest@localhost:5672"
-	}
+	
 	confPath := flag.String("conf", `./configuration/config.json`, "set the path to configuration json file")
 	flag.Parse()
 	config, _ := configuration.NewServiceConfig(*confPath)
 	fmt.Println("connecting to database")
 	dbHandler, _ := dblayer.NewPersistenceLayer(config.Databasetype, config.DatabaseConnection)
-	connection, err := amqp.Dial(amqpURL)
+	connection, err := amqp.Dial(config.AmqpMessageBroker)
 	if err != nil {
 		panic("could not establish amqp connection" + err.Error())
+	}
+	emitter, err := amqp_test.NewAmpqEventEmitter(connection)
+	if err != nil{
+       panic(err)
 	}
 	defer connection.Close()
 	channel, err := connection.Channel()
@@ -58,7 +59,7 @@ func main() {
         fmt.Println("message recieved" + string(message.Body))
 		message.Ack(false)
 	}
-	httpChanServe, httpChanServeTls := api.ServiceApi(config.RestfulEndpoint, config.RestfulEndpointTls, dbHandler)
+	httpChanServe, httpChanServeTls := api.ServiceApi(config.RestfulEndpoint, config.RestfulEndpointTls, dbHandler,emitter)
 	select {
 	case err := <-httpChanServe:
 		log.Fatal("HTTP ERROR", err)
