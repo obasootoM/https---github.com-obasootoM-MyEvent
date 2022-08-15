@@ -12,7 +12,7 @@ var (
 	DATACONNECTIONDEFAULT = "mongodb:127.0.0.1"
 	RESTFULDEFAULT        = "localhost:9191"
 	RESTFULDEFAULTLS      = "localhost:8181"
-	AMPQMESSAGEBROKER     = "amqp://guest:guest@localhost:5672"
+	AMPQMESSAGEBROKER     = "amqp://guest:guest@localhost:8000"
 )
 
 type ServiceConfig struct {

@@ -4,4 +4,7 @@ certificate:
 main:
 	go run main.go
 
-.PHONY:certificate main
+docker:
+	sudo docker run -d --name rabbitmq -h rabbit-mq -p 8000:5672 -p 8080:15672 rabbitmq:3-management
+
+.PHONY:certificate main docker

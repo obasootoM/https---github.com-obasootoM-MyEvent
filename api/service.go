@@ -50,9 +50,10 @@ func (eh *Service) findEventHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "error %s", err)
 	}
 	w.Header().Set("Content-Type", "application/json;charset=UTF8")
-	err = json.NewEncoder(w).Encode(&persist)
-	if err  != nil{
-		fmt.Fprintf(w,"{error: cannot read from json%s}",err)
+	decode := json.NewEncoder(w)
+	err = decode.Encode(persist)
+	if err != nil {
+		fmt.Fprintf(w, "error occured %s",err)
 		return
 	}
 
@@ -109,7 +110,7 @@ func ServiceApi(endpoint,tlsEndpoint string, dbHandler persistence.DataBaseHandl
 	r := mux.NewRouter()
 	handler := NewService(dbHandler, emitter)
 	eventRouter := r.PathPrefix("/events").Subrouter()
-	eventRouter.Methods("Get").Path("").HandlerFunc(handler.findEventHandler)
+	eventRouter.Methods("Get").Path("[searchCriteria]/[search]").HandlerFunc(handler.findEventHandler)
 	eventRouter.Methods("Get").Path("").HandlerFunc(handler.allEventHandler)
 	eventRouter.Methods("Post").Path("").HandlerFunc(handler.newEventHandler)
 	httpChanServe := make(chan error)

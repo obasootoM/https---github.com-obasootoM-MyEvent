@@ -37,9 +37,9 @@ func main() {
 		panic(err)
 	}
 	message := amqp.Publishing{
-		Body: []byte("Hello World"),
+		Body: []byte("\nHello World"),
 	}
-	err = channel.Publish("event", "some-routing-key", false, false, message)
+	err = channel.Publish("events", "some-routing-key", false, false, message)
 	if err != nil {
 		panic("cannot publish channel" + err.Error())
 	}
@@ -47,11 +47,11 @@ func main() {
 	if err != nil {
 		panic("error while declaring queue" + err.Error())
 	}
-	 err = channel.QueueBind("event","","",true,nil)
+	 err = channel.QueueBind("my_queue","#","events",false,nil)
 	 if err != nil {
 		panic("error when declaring bind to queue" + err.Error())
 	 }
-	 msg, err := channel.Consume("event","",false,false,false,false,nil)
+	 msg, err := channel.Consume("my_queue","",false,false,false,false,nil)
 	 if err != nil{
 		panic("error cannot consume" + err.Error())
 	 }

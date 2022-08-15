@@ -1,5 +1,5 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
+Makefile:8: *** multiple target patterns.  Stop.
 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
@@ -8,11 +8,11 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 11 00:39:16 2022
+# Make data base, printed on Mon Aug 15 00:20:55 2022
 
 # Variables
 
-# 'override' directive
+# environment
 GNUMAKEFLAGS := 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
@@ -49,7 +49,7 @@ SNAP_DATA = /var/snap/code/103
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:49788
+JOURNAL_STREAM = 8:50843
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -73,7 +73,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/103/usr/share/code/code
 # environment
-MANAGERPID = 2375
+MANAGERPID = 2189
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -89,7 +89,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2590,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2590
+SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2439,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2439
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -107,7 +107,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = faa4788799244329ba1d9dc2592b94a1
+INVOCATION_ID = e7885a7875b9423e92278af2f7344b30
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/103/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -119,7 +119,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3216
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2887
 # automatic
 %F = $(notdir $%)
 # environment
@@ -131,7 +131,7 @@ PWD = /home/hod/MyEvent
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2552
+SSH_AGENT_PID = 2402
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -247,19 +247,20 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3262
+VSCODE_PID = 2963
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=18/143=13%
+# Load=118/1024=12%, Rehash=0, Collisions=16/132=12%
 
+ 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 2054, inode 2547775): 15 files, no impossibilities.
+# . (device 2054, inode 2547775): 18 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -268,9 +269,8 @@ VSCODE_PID = 3262
 # Files
 
 certificate:
-#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 2):
 	go run $GOROOT/usr/local/go/src/crypto/tls/generate_cert.go --host=localhost
@@ -279,21 +279,15 @@ certificate:
 # Not a target:
 all:
 #  Command line target.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
-
-.PHONY: certificate main
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 Makefile:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-10 15:11:38.257531429
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -301,29 +295,32 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-main:
-#  Phony target (prerequisite of .PHONY).
+docker:
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Modification time never checked.
 #  File has not been updated.
- 
+
+main:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 5):
 	go run main.go
 
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/19=0%
+# Load=7/1024=1%, Rehash=0, Collisions=0/8=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 192 B / avg = 8 B
-# current buf: size = 8162 B / used = 192 B / count = 23 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 37 / storage = 279 B / avg = 7 B
+# current buf: size = 8162 B / used = 279 B / count = 37 / avg = 7 B
 
-# strcache performance: lookups = 32 / hit rate = 28%
+# strcache performance: lookups = 46 / hit rate = 19%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Thu Aug 11 00:39:16 2022
+# Load=37/8192=0%, Rehash=0, Collisions=2/46=4%
+# Finished Make data base on Mon Aug 15 00:20:55 2022
 
  
