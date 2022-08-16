@@ -1,6 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/hod/MyEvent'
+go run OROOT/usr/local/go/src/crypto/tls/generate_cert.go --host=localhost
 make: Leaving directory '/home/hod/MyEvent'
  
-Makefile:8: *** multiple target patterns.  Stop.
-

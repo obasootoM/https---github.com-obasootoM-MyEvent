@@ -23,7 +23,7 @@ type ServiceConfig struct {
 	AmqpMessageBroker  string           `json:"ampqmessagebroker"`
 }
 
-func NewServiceConfig(fileName string) (*ServiceConfig, error) {
+func NewServiceConfig(fileName string) (*ServiceConfig,error) {
 	config := &ServiceConfig{
 		DATATYPEDEFAULT,
 		DATACONNECTIONDEFAULT,
@@ -35,12 +35,12 @@ func NewServiceConfig(fileName string) (*ServiceConfig, error) {
 	file, err := os.Open(fileName)
 	if err != nil {
 		fmt.Println("configuration file not found, need to continue")
-		return config, err
+		return config,err
 	}
 	decode := json.NewDecoder(file)
 	err = decode.Decode(&config)
 	if broker := os.Getenv("amqp");broker != "" {
       config.AmqpMessageBroker = broker
 	}
-	return config, err
+	return config,err
 }

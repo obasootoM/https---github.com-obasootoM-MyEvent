@@ -84,7 +84,7 @@ func (eh *Service) newEventHandler(w http.ResponseWriter, r *http.Request) {
 	id, err := eh.DbHandler.AddEvent(events)
 	if err != nil {
 		w.WriteHeader(500)
-		fmt.Fprintf(w, "error occur while persisting event%d %s", id, err)
+		fmt.Fprintf(w, "error occur while persisting event%d ,%s", id, err)
 		return
 	}
 	msg := contract.EventCreatedEvent{
