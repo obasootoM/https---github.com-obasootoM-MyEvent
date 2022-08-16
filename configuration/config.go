@@ -42,5 +42,6 @@ func NewServiceConfig(fileName string) (*ServiceConfig,error) {
 	if broker := os.Getenv("amqp");broker != "" {
       config.AmqpMessageBroker = broker
 	}
+	
 	return config,err
 }

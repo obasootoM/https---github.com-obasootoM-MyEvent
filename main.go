@@ -7,9 +7,9 @@ import (
 	"myevent/api"
 	"myevent/configuration"
 	dblayer "myevent/dbLayer"
-
+	
+	"myevent/lib/amqp"
 	"github.com/streadway/amqp"
-	"myevent/lib/mesqp/amqp"
 )
 
 func main() {
@@ -28,6 +28,16 @@ func main() {
        panic(err)
 	}
 	defer connection.Close()
+	// brkerList := os.Getenv("apache kafka")
+	// if brkerList == "" {
+	// 	brkerList = "localhost:9191"
+	// }
+	// broker := strings.Split(brkerList, "")
+	// configu := sarama.NewConfig()
+	// client, err := sarama.NewClient(broker,configu)
+	// if err != nil {
+		
+	// }
 	// channel, err := connection.Channel()
 	// if err != nil {
 	// 	panic("cannot connect to channel" + err.Error())

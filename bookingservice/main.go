@@ -4,13 +4,14 @@ import (
 	"flag"
 	"fmt"
 	"myevent/api"
-	"myevent/bookingservice/listner"
 	"myevent/configuration"
 	dblayer "myevent/dbLayer"
 
-	amqp_test "myevent/lib/mesqp/amqp"
+	"myevent/lib/amqp"
+	"myevent/lib/listner"
 
 	"github.com/streadway/amqp"
+	"myevent/bookingservice/listner"
 )
 
 func main() {
@@ -24,7 +25,7 @@ func main() {
 		panic("could not establish amqp connection" + err.Error())
 	}
 	defer connection.Close()
-	eventListener, err := amqp_test.NewAmpqEventListner(connection, "")
+	eventListener, err := listner_test.NewAmpqEventListner(connection, "")
 	if err != nil {
 		panic(err)
 	}

@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 16 00:38:58 2022
+# Make data base, printed on Tue Aug 16 07:37:14 2022
 
 # Variables
 
@@ -49,7 +47,7 @@ SNAP_DATA = /var/snap/code/104
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:49040
+JOURNAL_STREAM = 8:50117
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -73,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/104/usr/share/code/code
 # environment
-MANAGERPID = 2123
+MANAGERPID = 2152
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -89,7 +87,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2335,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2335
+SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2366,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2366
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -107,7 +105,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 9a60b7ea82bb435682510318213abe9d
+INVOCATION_ID = 169c1d07a7dd461e9e929b6b331fb297
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/104/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -119,7 +117,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3338
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4713
 # automatic
 %F = $(notdir $%)
 # environment
@@ -131,7 +129,7 @@ PWD = /home/hod/MyEvent
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2298
+SSH_AGENT_PID = 2329
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -247,7 +245,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3423
+VSCODE_PID = 4841
 # variable set hash-table stats:
 # Load=118/1024=12%, Rehash=0, Collisions=18/143=13%
 
@@ -260,7 +258,6 @@ VSCODE_PID = 3423
 # . (device 2054, inode 2547775): 18 files, no impossibilities.
 
 # 18 files, no impossibilities in 1 directories.
- 
 
 # Implicit Rules
 
@@ -292,6 +289,9 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 #  Last modified 2022-08-15 00:53:52.580329139
 #  File has been updated.
 #  Successfully updated.
@@ -332,6 +332,6 @@ main:
 # strcache performance: lookups = 38 / hit rate = 28%
 # hash-table stats:
 # Load=27/8192=0%, Rehash=0, Collisions=1/38=3%
-# Finished Make data base on Tue Aug 16 00:38:58 2022
+# Finished Make data base on Tue Aug 16 07:37:14 2022
 
  
