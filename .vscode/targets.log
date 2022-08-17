@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 16 23:58:27 2022
+# Make data base, printed on Wed Aug 17 06:25:53 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ SNAP_DATA = /var/snap/code/104
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:51209
+JOURNAL_STREAM = 8:50088
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -71,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/104/usr/share/code/code
 # environment
-MANAGERPID = 2195
+MANAGERPID = 2177
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -85,7 +85,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2459,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2459
+SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2444,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2444
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -101,7 +101,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = dbed64427eb64e42b657eb781dd9dc4c
+INVOCATION_ID = 55a12e17a1674a839ce1ee08686f0f3b
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/104/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -113,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 9179
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3356
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,7 +125,7 @@ PWD = /home/hod/MyEvent
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2422
+SSH_AGENT_PID = 2407
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -241,13 +241,12 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 9228
+VSCODE_PID = 3405
 # variable set hash-table stats:
 # Load=115/1024=11%, Rehash=0, Collisions=17/140=12%
 
 # Pattern-specific Variable Values
 
- 
 # No pattern-specific variable values.
 
 # Directories
@@ -288,6 +287,7 @@ Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-15 00:53:52.580329139
 #  File has been updated.
+ 
 #  Successfully updated.
 
 # Not a target:
@@ -326,6 +326,6 @@ main:
 # strcache performance: lookups = 42 / hit rate = 26%
 # hash-table stats:
 # Load=31/8192=0%, Rehash=0, Collisions=1/42=2%
-# Finished Make data base on Tue Aug 16 23:58:27 2022
+# Finished Make data base on Wed Aug 17 06:25:53 2022
 
  

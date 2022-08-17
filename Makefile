@@ -6,5 +6,7 @@ main:
 
 docker:
 	sudo docker run -d --name rabbitmq -h rabbit-mq -p 8000:5672 -p 8080:15672 rabbitmq:3-management
+run:
+	go test -v ./...
 
-.PHONY:certificate main docker
+.PHONY:certificate main docker run
