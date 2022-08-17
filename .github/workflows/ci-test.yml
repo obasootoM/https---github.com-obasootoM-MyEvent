@@ -11,21 +11,17 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    service:
-      book-db:
-        image: mongo
-      event-db:
-        image: mongo  
-      rabbitmq:
-        image: rabbitmq:3-mangement
-      ports: 
-        -  8000:5672
+    
       
     steps:
-    - uses: actions/checkout@v3
     - name: set up go
+      uses: actions/setup-go@v3
       with: 
         go-version: 1.18
       id: go
+
+    - name: check out go code into the go module directory
+      run:  actions/checkout@v3  
+
     - name: Test
       run: make test
