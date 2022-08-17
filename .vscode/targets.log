@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 16 07:37:14 2022
+# Make data base, printed on Tue Aug 16 23:58:27 2022
 
 # Variables
 
@@ -47,7 +49,7 @@ SNAP_DATA = /var/snap/code/104
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:50117
+JOURNAL_STREAM = 8:51209
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -65,19 +67,15 @@ USERNAME = hod
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/104/usr/share/code/code
 # environment
-MANAGERPID = 2152
+MANAGERPID = 2195
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/hod
-# environment
-GOPROXY = https://proxy.golang.org,direct
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/104/usr/share/glib-2.0/schemas
 # default
@@ -87,15 +85,13 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2366,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2366
+SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2459,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2459
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/hod/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 SNAP = /snap/code/104
-# environment
-GOPATH = /home/hod/go
 # environment
 SNAP_VERSION = 6d9b74a7
 # environment
@@ -105,7 +101,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 169c1d07a7dd461e9e929b6b331fb297
+INVOCATION_ID = dbed64427eb64e42b657eb781dd9dc4c
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/104/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -117,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4713
+GIO_LAUNCHED_DESKTOP_FILE_PID = 9179
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,13 +125,13 @@ PWD = /home/hod/MyEvent
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2329
+SSH_AGENT_PID = 2422
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
-GOMODCACHE = /home/hod/go/pkg/mod
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/hod
 # environment
@@ -245,19 +241,20 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4841
+VSCODE_PID = 9228
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=18/143=13%
+# Load=115/1024=11%, Rehash=0, Collisions=17/140=12%
 
 # Pattern-specific Variable Values
 
+ 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 2054, inode 2547775): 18 files, no impossibilities.
+# . (device 2054, inode 2547775): 22 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -289,9 +286,6 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 #  Last modified 2022-08-15 00:53:52.580329139
 #  File has been updated.
 #  Successfully updated.
@@ -326,12 +320,12 @@ main:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 227 B / avg = 8 B
-# current buf: size = 8162 B / used = 227 B / count = 27 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 274 B / avg = 8 B
+# current buf: size = 8162 B / used = 274 B / count = 31 / avg = 8 B
 
-# strcache performance: lookups = 38 / hit rate = 28%
+# strcache performance: lookups = 42 / hit rate = 26%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=1/38=3%
-# Finished Make data base on Tue Aug 16 07:37:14 2022
+# Load=31/8192=0%, Rehash=0, Collisions=1/42=2%
+# Finished Make data base on Tue Aug 16 23:58:27 2022
 
  
