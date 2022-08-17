@@ -11,11 +11,24 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    
-      
+    services:
+      book-db:
+        image: mongo
+        networks:
+         - myevents
+      event-db:
+        image: mongo
+        networks:
+         - myevents
+      rabbitmq:
+        image: rabbitmq:3-management
+        ports:
+         - 8000:5672
+        networks:
+         - myevents 
     steps:
     - uses:  actions/checkout@v3 
-     
+
     - name: set up go
       uses: actions/setup-go@v3
       with: 
