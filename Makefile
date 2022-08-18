@@ -6,7 +6,14 @@ main:
 
 docker:
 	sudo docker run -d --name rabbitmq -h rabbit-mq -p 8000:5672 -p 8080:15672 rabbitmq:3-management
+	
 run:
 	go test -v ./...
 
-.PHONY:certificate main docker run
+event:
+	sudo docker run -d --name event-db --network myevents
+
+booking:
+	sudo docker run -d --name booking-db --network myevents	
+
+.PHONY:certificate main docker run event booking
