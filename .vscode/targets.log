@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 18 07:04:19 2022
+# Make data base, printed on Tue Aug 30 09:49:49 2022
 
 # Variables
 
@@ -43,11 +45,11 @@ CURDIR := /home/hod/MyEvent
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/104
+SNAP_DATA = /var/snap/code/105
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:48090
+JOURNAL_STREAM = 8:47795
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -65,21 +67,17 @@ USERNAME = hod
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-_ = /snap/code/104/usr/share/code/code
+_ = /snap/code/105/usr/share/code/code
 # environment
-MANAGERPID = 2184
+MANAGERPID = 2076
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/hod
 # environment
-GOPROXY = https://proxy.golang.org,direct
-# environment
-GSETTINGS_SCHEMA_DIR = /snap/code/104/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/105/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -87,17 +85,15 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2399,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2399
+SESSION_MANAGER = local/hod-Latitude-E5530-non-vPro:@/tmp/.ICE-unix/2346,unix/hod-Latitude-E5530-non-vPro:/tmp/.ICE-unix/2346
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/hod/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/104
+SNAP = /snap/code/105
 # environment
-GOPATH = /home/hod/go
-# environment
-SNAP_VERSION = 6d9b74a7
+SNAP_VERSION = e4503b30
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -105,9 +101,9 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = df1bf9a3900647a7b0abc60f08331c4c
+INVOCATION_ID = d45fc8e9ead341fd977c40afbccd4041
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/104/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -117,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3114
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3711
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,13 +125,13 @@ PWD = /home/hod/MyEvent
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2362
+SSH_AGENT_PID = 2306
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
-GOMODCACHE = /home/hod/go/pkg/mod
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/hod
 # environment
@@ -143,11 +139,11 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/hod/.config/Code/CachedData/6d9b74a70ca9c7733b29f0456fd8195364076dda
+VSCODE_CODE_CACHE_PATH = /home/hod/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
 # environment
 LOGNAME = hod
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
@@ -173,7 +169,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/hod/snap/code/104
+SNAP_USER_DATA = /home/hod/snap/code/105
 # environment
 SHLVL = 0
 # environment
@@ -183,7 +179,8 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = hod
 # environment
-SNAP_REVISION = 104
+ 
+SNAP_REVISION = 105
 # makefile
 .DEFAULT_GOAL := certificate
 # environment
@@ -197,7 +194,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-247c91e9-1.70.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-247c91e9-1.70.2-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -245,9 +242,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3163
+VSCODE_PID = 3772
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=18/143=13%
+# Load=115/1024=11%, Rehash=0, Collisions=17/140=12%
 
 # Pattern-specific Variable Values
 
@@ -255,9 +252,9 @@ VSCODE_PID = 3163
 
 # Directories
 
-# . (device 2054, inode 2547775): 22 files, no impossibilities.
+# . (device 2054, inode 2547775): 23 files, no impossibilities.
 
-# 22 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -276,12 +273,13 @@ certificate:
 
 # Not a target:
 all:
+ 
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
 
-.PHONY: certificate main docker run event booking
+.PHONY: certificate main docker run event booking dockerRun
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -289,10 +287,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-make: *** No rule to make target 'all'.  Stop.
-
-#  Last modified 2022-08-17 17:30:20.231061831
+#  Last modified 2022-08-26 07:19:52.723077816
 #  File has been updated.
 #  Successfully updated.
 
@@ -324,8 +319,23 @@ docker:
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 8):
-	sudo docker run -d --name rabbitmq -h rabbit-mq -p 8000:5672 -p 8080:15672 rabbitmq:3-management
+	sudo docker run -d --name rabbitmq -h rabbit-mq -p 8080:15672 rabbitmq:3-management
 	
+
+dockerRun:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
+	sudo docker run \
+	--detach \
+	--name events \
+	--network myevents \
+	-e AMQPMESSAGEBROKER=amqp://guest:guest@rabbit-mq:5672/ \
+	-e MONGO_URL=mongodb://event-db/events \
+	-p 9191:9191 \
+	myevents/eventServe
 
 main:
 #  Phony target (prerequisite of .PHONY).
@@ -344,19 +354,20 @@ event:
 	sudo docker run -d --name event-db --network myevents
 
 # files hash-table stats:
-# Load=11/1024=1%, Rehash=0, Collisions=0/27=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/29=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 34 / storage = 291 B / avg = 8 B
-# current buf: size = 8162 B / used = 291 B / count = 34 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 311 B / avg = 8 B
+# current buf: size = 8162 B / used = 311 B / count = 36 / avg = 8 B
 
-# strcache performance: lookups = 51 / hit rate = 33%
+# strcache performance: lookups = 55 / hit rate = 34%
 # hash-table stats:
-# Load=34/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Thu Aug 18 07:04:19 2022
+ 
+# Load=36/8192=0%, Rehash=0, Collisions=1/55=2%
+# Finished Make data base on Tue Aug 30 09:49:49 2022
 
  

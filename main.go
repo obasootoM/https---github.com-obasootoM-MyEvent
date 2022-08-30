@@ -7,74 +7,66 @@ import (
 	"myevent/api"
 	"myevent/configuration"
 	dblayer "myevent/dbLayer"
-	
-	"myevent/lib/amqp"
+	amqp_test "myevent/lib/amqp"
+
 	"github.com/streadway/amqp"
 )
 
 func main() {
-	
-	confPath := flag.String("conf", `./configuration/config.json`, "set the path to configuration json file")
+	path := flag.String("conf", `.\configuration\config.json`, "flag to set  path to configuration json file")
 	flag.Parse()
-	config, _ := configuration.NewServiceConfig(*confPath)
-	fmt.Println("connecting to database")
-	dbHandler, _ := dblayer.NewPersistenceLayer(config.Databasetype, config.DatabaseConnection)
-	connection, err := amqp.Dial(config.AmqpMessageBroker)
+	configu, _ := configuration.NewServiceConfig(*path)
+	connection, err := amqp.Dial("amqp://guest:guest@localhost:8282/")
 	if err != nil {
-		panic("could not establish amqp connection" + err.Error())
-	}
-	emitter, err := amqp_test.NewAmpqEventEmitter(connection)
-	if err != nil{
-       panic(err)
+		log.Fatal("cannot secure connection to rabbitmq" + err.Error())
 	}
 	defer connection.Close()
-	// brkerList := os.Getenv("apache kafka")
-	// if brkerList == "" {
-	// 	brkerList = "localhost:9191"
-	// }
-	// broker := strings.Split(brkerList, "")
-	// configu := sarama.NewConfig()
-	// client, err := sarama.NewClient(broker,configu)
-	// if err != nil {
-		
-	// }
-	// channel, err := connection.Channel()
-	// if err != nil {
-	// 	panic("cannot connect to channel" + err.Error())
-	// }
-	// err = channel.ExchangeDeclare("events", "topic", true, false, false, false, nil)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// message := amqp.Publishing{
-	// 	Body: []byte("\nHello World"),
-	// }
-	// err = channel.Publish("events", "some-routing-key", false, false, message)
-	// if err != nil {
-	// 	panic("cannot publish channel" + err.Error())
-	// }
-	// _, err = channel.QueueDeclare("my_queue",true,false,false,false,nil)
-	// if err != nil {
-	// 	panic("error while declaring queue" + err.Error())
-	// }
-	//  err = channel.QueueBind("my_queue","#","events",false,nil)
-	//  if err != nil {
-	// 	panic("error when declaring bind to queue" + err.Error())
-	//  }
-	//  msg, err := channel.Consume("my_queue","",false,false,false,false,nil)
-	//  if err != nil{
-	// 	panic("error cannot consume" + err.Error())
-	//  }
-    // for message := range msg{
-    //     fmt.Println("message recieved" + string(message.Body))
-	// 	message.Ack(false)
-	// }
-	httpChanServe, httpChanServeTls := api.ServiceApi(config.RestfulEndpoint, config.RestfulEndpointTls, dbHandler,emitter)
-	select {
-	case err := <-httpChanServe:
-		log.Fatal("HTTP ERROR", err)
-	case err := <-httpChanServeTls:
-		log.Fatal("HTTPS", err)
+	fmt.Println("connecting to database")
+	channel, err := connection.Channel()
+	if err != nil {
+		log.Fatal("connection err" + err.Error())
+	}
+	err = channel.ExchangeDeclare("events", "topic", true, false, false, false, nil)
+	if err != nil {
+		log.Fatal("cannot exchange declare " + err.Error())
+	}
+	p, err := channel.QueueDeclare("my_event", true, false, false, false, nil)
+	if err != nil {
+		log.Fatal("cannot declare queue" + err.Error())
+	}
+	err = channel.QueueBind(p.Name, "#", "events",false,nil)
+	if err != nil {
+		log.Fatal("cannot bind to queue" + err.Error())
+	}
+	body := "hello world"
+	msg := amqp.Publishing{
+		Body:        []byte(body),
+		ContentType: "text/body",
+	}
+	err = channel.Publish("events", "key", false, false, msg)
+	if err != nil {
+		log.Fatal("cannot publish " + err.Error())
+	}
+	msgs, err := channel.Consume(p.Name, "", false, false, false, false, nil)
+	if err != nil {
+		log.Fatal("cannot consume " + err.Error())
+	}
+	for mesg := range msgs {
+		fmt.Println("message recieved" + string(mesg.Body))
+		mesg.Ack(false)
 	}
 
+	dbHandler, _ := dblayer.NewPersistenceLayer(configu.Databasetype, configu.DatabaseConnection)
+	emiter, err := amqp_test.NewAmpqEventEmitter(connection)
+	if err != nil {
+		log.Fatal("cannot create new emitter" + err.Error())
+	}
+
+	httpServer, httpServerTls := api.ServiceApi(configu.RestfulEndpoint, configu.RestfulEndpointTls, dbHandler, emiter)
+	select {
+	case err := <-httpServer:
+		log.Fatal("http err" + err.Error())
+	case err := <-httpServerTls:
+		log.Fatal("https err" + err.Error())
+	}
 }

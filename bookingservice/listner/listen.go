@@ -15,7 +15,7 @@ type EventProcessor struct {
 }
 
 func (p *EventProcessor) ProcessEvent() error {
-	log.Fatal("listening to event...")
+	log.Println("listening to event...")
 	recieved, errors, err := p.EventListner.Listen("event.created")
 	if err != nil {
 		return err

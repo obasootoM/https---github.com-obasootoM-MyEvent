@@ -1,10 +1,11 @@
 version: '3.3'
 networks:
   myevents:
+   
 
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
+  rabbit-mq:
+    image: rabbitmq:management
     ports:
       - 8080:15672
     networks:
@@ -30,7 +31,7 @@ services:
     networks:
       - myevents   
     environment:
-      - AMQPMESSAGEBROKER=amqp://guest:guest@rabbitmq:8080/
+      - AMQPMESSAGEBROKER=amqp://guest:guest@rabbit-mq:8080/
       - MONGO_URL=mongodb://book-db/bookings   
 
   events:
@@ -42,7 +43,7 @@ services:
     networks:
       - myevents
     environment:
-      - AMQPMESSAGEBROKER=amqp://guest:guest@rabbitmq:8080/
+      - AMQPMESSAGEBROKER=amqp://guest:guest@rabbit-mq:8080/
       - MONGO_URL=mongodb://event-db/events             
 
     

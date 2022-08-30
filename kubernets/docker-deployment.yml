@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: eventservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      myevents/app: events
+    
+  template:
+    metadata:
+      labels: 
+        myevents/app: events
+        myevents/tier: api
+    spec:
+      containers:
+      - name: api
+        image: myevents/eventservice
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9191
+          name: http
+        env:
+        - name: MONGO_URL
+          value: mongodb://event-db/events
+        - name: AMQP_URL
+          value: amqp://guest:guest@rabbit-mq:5672/ 
+           
+        

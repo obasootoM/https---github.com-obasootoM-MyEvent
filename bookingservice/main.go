@@ -3,40 +3,44 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"myevent/api"
 	"myevent/configuration"
 	dblayer "myevent/dbLayer"
-
-	"myevent/lib/amqp"
-	"myevent/lib/listner"
+	amqp_test "myevent/lib/amqp"
+	listner_test "myevent/lib/listner"
 
 	"github.com/streadway/amqp"
 	"myevent/bookingservice/listner"
 )
 
+
+
 func main() {
-	confPath := flag.String("conf", `./configuration/config.json`, "set the path to configuration json file")
+	path := flag.String("conf", `.\configuration\config.json`, "flag to set  path to configuration json file")
 	flag.Parse()
-	config, _ := configuration.NewServiceConfig(*confPath)
-	fmt.Println("connecting to database")
-	dbHandler, _ := dblayer.NewPersistenceLayer(config.Databasetype, config.DatabaseConnection)
-	connection, err := amqp.Dial(config.AmqpMessageBroker)
+	configu, _ := configuration.NewServiceConfig(*path)
+	connection, err := amqp.Dial(configu.AmqpMessageBroker)
 	if err != nil {
-		panic("could not establish amqp connection" + err.Error())
+		log.Fatal("cannot secure connection to rabbitmq" + err.Error())
 	}
 	defer connection.Close()
-	eventListener, err := listner_test.NewAmpqEventListner(connection, "")
-	if err != nil {
-		panic(err)
+	fmt.Println("connecting to database")
+    dbHandler, _ := dblayer.NewPersistenceLayer(configu.Databasetype, configu.DatabaseConnection)
+	list, err := listner_test.NewAmpqEventListner(connection, "")
+	if err != nil{
+      log.Fatal("cannot create listner" + err.Error())
 	}
 	emitter, err := amqp_test.NewAmpqEventEmitter(connection)
 	if err != nil {
-		panic(err)
+		log.Fatal("")
 	}
-	process := &listner.EventProcessor{
-		EventListner: eventListener,
-		Database:     dbHandler,
+
+	processor := listner.EventProcessor{
+		EventListner: list,
+		Database: dbHandler,
 	}
-	go process.ProcessEvent()
-	api.ServiceApi(config.RestfulEndpoint, config.RestfulEndpointTls, dbHandler, emitter)
+	go processor.ProcessEvent()
+	
+	api.ServiceApi(configu.RestfulEndpoint,configu.RestfulEndpointTls, dbHandler, emitter)
 }

@@ -112,7 +112,7 @@ func ServiceApi(endpoint,tlsEndpoint string, dbHandler persistence.DataBaseHandl
 	eventRouter := r.PathPrefix("/events").Subrouter()
 	eventRouter.Methods("Get").Path("[searchCriteria]/[search]").HandlerFunc(handler.findEventHandler)
 	eventRouter.Methods("Get").Path("").HandlerFunc(handler.allEventHandler)
-	eventRouter.Methods("Post").Path("").HandlerFunc(handler.newEventHandler)
+	eventRouter.Methods("Post").Path("/events").HandlerFunc(handler.newEventHandler)
 	httpChanServe := make(chan error)
 	httpChanServeTls := make(chan error)
 	go func() {
